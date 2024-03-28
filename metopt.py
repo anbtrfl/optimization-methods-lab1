@@ -144,12 +144,13 @@ functions = [
     noisy_function
 ]
 
-diap = np.array([11, 11])
-start_values = np.array([10, 10])
+diap = np.array([-100, 100])
+start_values = np.array([80, 80])
 eps2 = 1e-3
-history = np.array(methods["nelder_mead"](functions[6], start_values, epochs=100000, eps=1e-3, eps_gradient=eps2))
+history = np.array(methods["nelder_mead"](functions[1], start_values, epochs=100000, eps=1e-3, eps_gradient=eps2))
+print(f"Полученная точка: {history[-1]}")
 print(
-    f"кол-во итераций для поиска: {GLOBAL_F_CNT}, кол-во итераций для спуска: {GLOBAL_GRAD_F_CNT}, Число итераций {len(history)}")
-draw(diap, eps2, functions[6], start_values, titles_function[6], history)
+    f"Кол-во итераций для поиска (вызовы функции): {GLOBAL_F_CNT}, кол-во итераций для спуска (вызовы градиента): {GLOBAL_GRAD_F_CNT}, Число итераций {len(history)}")
+draw(diap, eps2, functions[1], start_values, titles_function[1], history)
 
 plt.show()
